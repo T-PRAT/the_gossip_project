@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: the_gossip_project_production
-  username: the_gossip_project
+  username: tprat
   password: <%= ENV['THE_GOSSIP_PROJECT_DATABASE_PASSWORD'] %>
