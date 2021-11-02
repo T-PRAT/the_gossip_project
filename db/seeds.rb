@@ -1,8 +1,8 @@
+Tag.destroy_all
+JoinTableGossipTag.destroy_all
 User.destroy_all
 City.destroy_all
 Gossip.destroy_all
-Tag.destroy_all
-JoinTableGossipTag.destroy_all
 
 15.times do
 	City.create(
@@ -11,13 +11,14 @@ JoinTableGossipTag.destroy_all
 end
 
 10.times do
-	User.create(
+	user = User.create(
 		first_name: Faker::Name.first_name,
 		last_name: Faker::Name.last_name,
 		description: Faker::GreekPhilosophers.quote,
 		email: Faker::Internet.email,
 		age: rand(18..100),
 		city: City.all.sample)
+		puts user.first_name
 end
 
 5.times do

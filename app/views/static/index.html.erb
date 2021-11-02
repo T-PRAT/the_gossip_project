@@ -1,0 +1,17 @@
+<div class="container-fluid text-center bg-dark">
+	<h1>Bienvenue sur le site de potin numero 1</h1>
+	 <div class="row text-white">
+    <% puts @gossips %>
+    <% @gossips.each do |gossip| %>
+	<div class="col-sm-2" style="padding: 15px;">
+		<div class="card">
+          <div class="card-header bg-black">
+            <h2><%= gossip.title %></h2>
+          </div>
+          <div class="card-body bg-dark">
+            <h3 class="card-title">A été écrit par <%= gossip.user.first_name %></h3>
+          </div>
+        </div>
+	</div>
+    <% end %>
+</div>
