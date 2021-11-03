@@ -1,3 +1,3 @@
 # The Gossip Project
 
-> bundle install && rails db:migrate sb:seed && rails s
+> bundle install && rails db:migrate db:seed && rails s
