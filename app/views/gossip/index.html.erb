@@ -1,0 +1,33 @@
+<div class="container-lg text-center">
+  <div class="container-xl bg-light" style="border-radius: 5px; margin-bottom: 20px;">
+	  <h1 style="margin-bottom: 40px; padding-top: 40px;">Bienvenue sur le site de potin numero 1</h1>
+    <div style="padding-bottom: 30px;">
+      <%= link_to "Créer un nouveau potin", new_gossip_path, :class=>"btn btn-lg btn-success" %>
+    </div>
+  </div>
+
+	 <div class="row">
+    <% puts @gossips %>
+    <% @gossips.each do |gossip| %>
+	<div class="col-sm-6" style="padding: 15px;">
+		<div class="card">
+          <div class="card-header bg-light">
+            <h2><%= gossip.title %></h2>
+          </div>
+          <div class="card-body">
+            <p class="text"><%= gossip.content[0..150]%> </br>...</p>
+            <p class="text-muted">Ecrit par <%= gossip.user.first_name %></p>
+          </div>
+          <div class="card-footer">
+            <div class="col">
+              <div class="btn-group" role="group" aria-label="3 btn">
+                <%= link_to "Modifier", edit_gossip_path(gossip.id), :type=>"button", :class=>"btn btn-warning" %>
+                <%= link_to "Accéder au potin", gossip_path(gossip.id), :type=>"button", :class=>"btn btn-primary" %>
+                <%= link_to "Supprimer", gossip, method: :delete, data: {confirm: 'Supprimer définitivement le potin ?'}, :class=>"btn btn-primary" %>
+              </div>
+            </div>
+          </div>
+        </div>
+	</div>
+    <% end %>
+</div>

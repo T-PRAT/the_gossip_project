@@ -1,10 +1,10 @@
-
-<div class="container" style="border-radius: 5px;">
+<div class="container-xl" style="border-radius: 5px;">
 	<div class="row justify-content-center">
-		<div class="card">
+		<div class="card" style="width: 50rem;">
         	<h3 class="card-header text-center"><%= @gossip.title %></h3>
     		<div class="card-body text-center">
      		   	<p class="card-text"><%= @gossip.content %></p>
+            	<%= link_to "modifier", edit_gossip_path(@gossip.id), :class=>"btn btn-warning" %>
    			</div>
 				<table class="table table-hover text-muted">
 					<tr class="table-primary">
