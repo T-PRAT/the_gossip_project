@@ -23,7 +23,7 @@
               <div class="btn-group" role="group" aria-label="3 btn">
                 <%= link_to "Modifier", edit_gossip_path(gossip.id), :type=>"button", :class=>"btn btn-warning" %>
                 <%= link_to "Accéder au potin", gossip_path(gossip.id), :type=>"button", :class=>"btn btn-primary" %>
-                <%= link_to "Supprimer", gossip, method: :delete, data: {confirm: 'Supprimer définitivement le potin ?'}, :class=>"btn btn-primary" %>
+                <%= link_to "Supprimer", gossip, method: :delete, data: {confirm: 'Supprimer définitivement le potin ?'}, :class=>"btn btn-danger" %>
               </div>
             </div>
           </div>

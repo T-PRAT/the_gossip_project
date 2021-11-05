@@ -4,12 +4,19 @@
         	<h3 class="card-header text-center"><%= @gossip.title %></h3>
     		<div class="card-body text-center">
      		   	<p class="card-text"><%= @gossip.content %></p>
-            	<%= link_to "modifier", edit_gossip_path(@gossip.id), :class=>"btn btn-warning" %>
+					<div class="btn-group">
+            			<%= link_to "Modifier ", edit_gossip_path(@gossip.id), :class=>"btn btn-warning" %>
+             			<%= link_to "Supprimer", @gossip, method: :delete, data: {confirm: 'Supprimer définitivement le potin ?'}, :class=>"btn btn-danger" %>
+					</div>
    			</div>
 				<table class="table table-hover text-muted">
 					<tr class="table-primary">
 						<th scope="row">Auteur</th>
 						<th><%= @gossip.user.first_name %> <%= @gossip.user.last_name %></th>
+					</tr>
+					<tr class="table-secondary">
+						<th scope="row">Ville</th>
+						<th><%= @gossip.user.city.name %></th>
 					</tr>
 					<tr>
 						<th scope="row">Crée le</th>

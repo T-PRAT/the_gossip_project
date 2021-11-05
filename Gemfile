@@ -65,3 +65,4 @@ gem 'faker'
 gem 'bootstrap', '~> 5.1.0'
 gem 'jquery-rails'
 gem "font-awesome-rails"
+gem 'bcrypt'

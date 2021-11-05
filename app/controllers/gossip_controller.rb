@@ -1,10 +1,14 @@
 class GossipController < ApplicationController
+  def show
+    @gossip = Gossip.find(params[:id])
+  end
+
   def index
     @gossips = Gossip.all
   end
 
-  def show
-    @gossip = Gossip.find(params[:id])
+  def new
+    @gossip = Gossip.new
   end
 
   def edit
@@ -18,12 +22,10 @@ class GossipController < ApplicationController
   end
 
   def create
-    Gossip.create(post_params)
+    @gossip = Gossip.new(post_params)
+    @gossip.user = current_user
+    @gossip.save
     redirect_to gossip_index_path
-  end
-
-  def new
-    @gossip = Gossip.new
   end
 
   def destroy
@@ -35,6 +37,6 @@ class GossipController < ApplicationController
   private
 
   def post_params
-    post_params = params.require(:gossip).permit(:title, :content)
+    post_params = params.permit(:title, :content)
   end
 end

@@ -1,8 +1,8 @@
-Tag.destroy_all
-JoinTableGossipTag.destroy_all
-User.destroy_all
-City.destroy_all
-Gossip.destroy_all
+Tag.delete_all
+JoinTableGossipTag.delete_all
+User.delete_all
+City.delete_all
+Gossip.delete_all
 
 15.times do
 	City.create(
@@ -16,18 +16,20 @@ end
 		last_name: Faker::Name.last_name,
 		description: Faker::GreekPhilosophers.quote,
 		email: Faker::Internet.email,
-		age: rand(18..100),
-		city: City.all.sample)
-		puts user.first_name
+		age: rand(18..80),
+		city: City.all.sample,
+		password: Faker::Internet.password)
 end
 
 5.times do
 	Tag.create(title: Faker::Company.type)
 end
 
-15.times do
+10.times do
 	Gossip.create(
 		title: Faker::Movies::Hobbit.location,
 		content: Faker::Movies::Hobbit.quote,
 		user: User.all.sample)
 end
+
+User.create(first_name: "Jean", last_name: "Dupont", description: "oui", email: "jeandupont@gmail.com", password:"1234")

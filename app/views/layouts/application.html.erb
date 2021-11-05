@@ -26,11 +26,23 @@
 						<%= link_to "Contact", contact_path, :class=>"nav-link" %>
 					</li>
 				</ul>
-				<form class="d-flex">
-					<input class="form-control me-sm-2" type="text" placeholder="Search" />
-					<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-				</form>
 			</div>
+				<% if logged_in? %>
+  				<div class="btn-group" role="group">
+  				<button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= current_user.first_name %></button>
+    			<div class="dropdown-menu dropdown-menu-end">
+					<%= link_to "Profile", user_path(current_user.id), :class=>"dropdown-item" %>
+					<%= link_to "Se déconnecter", session_path(session.id), method: :delete, :class=>"dropdown-item" %>
+    			</div>
+				<% else %>
+				<div class="btn-group" role="group">
+  				<button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Connexion</button>
+    			<div class="dropdown-menu dropdown-menu-end">
+					<%= link_to "Créé un compte", new_user_path, :class=>"dropdown-item" %>
+					<%= link_to "Se connecter", new_session_path, :class=>"dropdown-item" %>
+    			</div>
+				<% end %>
+  				</div>
 		</div>
 	</nav>
 	<%= yield %>

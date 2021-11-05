@@ -8,28 +8,19 @@
 <div class="container" style="border-radius: 5px;">
 	<div class="row justify-content-center">
 		<div class="card">
-        	<h3 class="card-header text-center">Nouveaux compte</h3>
+        	<h3 class="card-header text-center">Connexion</h3>
     		<div class="card-body">
 				<%= form_tag url_for(action: 'create'),  method: 'post' do%>
-					<label class="form-label mt-4">Prénom</label>
-					<%= search_field_tag 'last_name', nil, class: "form-control" %>
-					<label class="form-label mt-4">Nom</label>
-					<%= search_field_tag 'first_name', nil, class: "form-control" %>
-					<label class="form-label mt-4">Age</label>
-					<%= number_field_tag 'age', nil, class: "form-control" %>
-					<label class="form-label mt-4">Description</label>
-					<%= text_area_tag 'description', nil, class: "form-control" %>
 					<label class="form-label mt-4">Adresse email</label>
 					<%= email_field_tag 'email', nil, class: "form-control" %>
 					<label class="form-label mt-4">Mot de passe</label>
 					<%= password_field_tag 'password', nil, class: "form-control" %>
 				<div class="row justify-content-center">
-					<%= submit_tag "Créer un compte", class: "btn btn-primary", style: "width: 300px; margin-top: 20px;" %>
+					<%= submit_tag "Se connecter", class: "btn btn-primary", style: "width: 300px; margin-top: 20px;" %>
 				</div>
 				<% end %>
    			</div>
 		</div>
 	</div>
 </div>
-
 
